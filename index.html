@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntax Racers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-code"></i> SYNTAX <span class="highlight">RACERS</span>
+            </div>
+            <div class="stats-bar" id="topStats" style="opacity: 0;">
+                <div class="stat-item"><i class="fa-regular fa-clock"></i> <span id="timeDisplay">0s</span></div>
+                <div class="stat-item"><i class="fa-solid fa-bolt"></i> <span id="wpmDisplay">0</span> WPM</div>
+            </div>
+        </header>
+
+        <section id="menuScreen" class="screen active">
+            <div class="hero-content">
+                <h1>Master the <span class="glitch" data-text="Syntax">Syntax</span></h1>
+                <p>Test your typing speed with real code snippets.</p>
+
+                <div class="language-select">
+                    <label>Select Language:</label>
+                    <div class="options">
+                        <button class="lang-btn active" data-lang="javascript"><i class="fa-brands fa-js"></i>
+                            JavaScript</button>
+                        <button class="lang-btn" data-lang="python"><i class="fa-brands fa-python"></i> Python</button>
+                        <button class="lang-btn" data-lang="css"><i class="fa-brands fa-css3-alt"></i> CSS</button>
+                        <button class="lang-btn" data-lang="java"><i class="fa-brands fa-java"></i> Java</button>
+                        <button class="lang-btn" data-lang="csharp"><i class="fa-solid fa-code"></i> C#</button>
+                        <button class="lang-btn" data-lang="php"><i class="fa-brands fa-php"></i> PHP</button>
+                        <button class="lang-btn" data-lang="cpp"><i class="fa-solid fa-code"></i> C++</button>
+                    </div>
+                </div>
+
+                <div class="duration-select">
+                    <label>Duration:</label>
+                    <div class="options">
+                        <button class="time-btn active" data-time="15">15s</button>
+                        <button class="time-btn" data-time="30">30s</button>
+                        <button class="time-btn" data-time="60">60s</button>
+                    </div>
+                </div>
+
+                <div class="difficulty-select">
+                    <label>Difficulty:</label>
+                    <div class="options">
+                        <button class="diff-btn active" data-diff="easy">Easy</button>
+                        <button class="diff-btn" data-diff="medium">Medium</button>
+                        <button class="diff-btn" data-diff="hard">Hard</button>
+                        <button class="diff-btn" data-diff="master">Master</button>
+                    </div>
+                </div>
+
+                <button id="startBtn" class="cta-btn">START RACE <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="gameScreen" class="screen">
+            <div class="game-area">
+                <div class="overlay-message" id="focusMessage">Click to Focus</div>
+                <div class="code-container glass-panel">
+                    <pre><code id="codeDisplay" class="language-javascript"></code></pre>
+                    <input type="text" id="hiddenInput" class="hidden-input" autocomplete="off" autocapitalize="off"
+                        spellcheck="false">
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </section>
+
+        <section id="resultsScreen" class="screen">
+            <div class="results-card glass-panel">
+                <h2>Session Complete</h2>
+                <div class="big-stats">
+                    <div class="stat-box">
+                        <span class="label">WPM</span>
+                        <span class="value" id="finalWpm">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Accuracy</span>
+                        <span class="value" id="finalAccuracy">0%</span>
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <p class="quote" id="resultQuote">"Quality code takes time, but you were fast!"</p>
+                </div>
+                <div class="actions">
+                    <button id="restartBtn" class="cta-btn secondary">Try Again</button>
+                    <button id="menuBtn" class="cta-btn">Main Menu</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
