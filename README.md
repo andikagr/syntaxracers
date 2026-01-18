@@ -2,7 +2,7 @@
 
 **Master the Syntax.** Test your typing speed with real code snippets in your favorite programming languages.
 
-![Syntax Racers Preview](./preview.png)
+<img width="1137" height="929" alt="image" src="https://github.com/user-attachments/assets/465a552e-3207-4ede-9db0-21a140e5fd90" />
 
 
 ## Description
