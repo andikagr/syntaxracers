@@ -3,7 +3,7 @@
 **Master the Syntax.** Test your typing speed with real code snippets in your favorite programming languages.
 
 ![Syntax Racers Preview](./preview.png)
-*(Note: Add a screenshot of your application here and name it preview.png)*
+
 
 ## Description
 
@@ -34,7 +34,7 @@ Syntax Racers is a web-based typing game designed specifically for developers. U
     -   **Red**: Incorrect character.
 4.  **Finish**: When the time runs out, view your detailed results including final WPM and accuracy.
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
 No complex installation is required! Because Syntax Racers is built with vanilla HTML, CSS, and JavaScript, you can run it directly in your browser.
 
@@ -73,4 +73,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [KepinIpa3]
